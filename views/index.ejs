@@ -1,13 +1,222 @@
 <%- include("partials/header.ejs") %>
 
-<h1>👋 Welcome to My Portfolio!</h1>
+<style>
+  .home-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+  }
 
-<p>Hello! I’m an enthusiastic Information Science and Engineering (ISE) student with a deep interest in technology and problem-solving. I enjoy exploring how things work under the hood—whether it’s a line of code, a data structure, or a full-stack web application. I believe in continuous learning and am passionate about building digital solutions that are both creative and meaningful.</p>
+  .home-container h1 {
+    font-size: 2.8rem;
+    margin-bottom: 30px;
+    color: #333;
+    text-align: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
 
-<p>
-  This portfolio is a glimpse into my learning journey, projects, and skills. From developing responsive web interfaces to working with data and backend logic, I’ve enjoyed every step of bringing ideas to life through code. Feel free to explore my work, check out my projects, and connect with me as I continue growing in the world of tech..
-</p>
+  .intro-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    color: white;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+  }
 
+  .intro-card::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    animation: rotate 20s linear infinite;
+  }
 
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .intro-card p {
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .intro-card strong {
+    color: #ffd700;
+    font-weight: 600;
+  }
+
+  .highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+  }
+
+  .highlight-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border-top: 4px solid #3586ff;
+  }
+
+  .highlight-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  }
+
+  .highlight-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+
+  .highlight-card h3 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .highlight-card p {
+    color: #666;
+    line-height: 1.6;
+    text-align: center;
+    font-size: 0.95rem;
+  }
+
+  .cta-section {
+    text-align: center;
+    margin-top: 50px;
+    padding: 40px;
+    background: linear-gradient(135deg, #667eea10 0%, #3586ff10 100%);
+    border-radius: 15px;
+  }
+
+  .cta-section h2 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .cta-button {
+    display: inline-block;
+    padding: 15px 35px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+  }
+
+  .cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+    text-decoration: none;
+    color: white;
+  }
+
+  .cta-button.secondary {
+    background: linear-gradient(135deg, #3586ff 0%, #667eea 100%);
+  }
+
+  @media (max-width: 768px) {
+    .home-container h1 {
+      font-size: 2rem;
+    }
+
+    .intro-card {
+      padding: 25px;
+    }
+
+    .intro-card p {
+      font-size: 1rem;
+    }
+
+    .highlights-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .cta-button {
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+</style>
+
+<div class="home-container">
+  <h1>👋 Welcome to My Portfolio!</h1>
+
+  <div class="intro-card">
+    <p>Hello! I'm <strong>Hegde Punith Ramesh</strong>, an enthusiastic Information Science and Engineering (ISE) student at <strong>University Visvesvaraya College of Engineering (UVCE)</strong> with a CGPA of <strong>8.96</strong>. I'm passionate about technology, problem-solving, and building innovative digital solutions that make a real impact.</p>
+
+    <p>Currently, I'm working as part of the <strong>Core Technical Team at Kaashvi Tutorials Learning Platform</strong>, where I actively develop Android applications and full-stack web solutions. As an <strong>Android Mobile App Developer</strong>, I'm building the Kaashvi Tutor App (available on Play Store) with secure authentication, enhanced learning features, and large-scale deployment management. As a <strong>Full Stack Developer</strong>, I've designed and developed an Admin Management Web Application using Node.js, Express.js, and Firebase.</p>
+
+    <p>Beyond development, I proudly serve as the <strong>General Secretary of IEEE UVCE</strong>, where I lead and coordinate national-level technical events like CODEFURY 8.0, KAGADA 2025, and IMPETUS 25. I'm also the <strong>SPAC Co-Lead for IEEE Bangalore Section</strong>, representing my college at the section level and fostering inter-college collaboration.</p>
+  </div>
+
+  <div class="highlights-grid">
+    <div class="highlight-card">
+      <div class="highlight-icon">💼</div>
+      <h3>Professional Experience</h3>
+      <p>Working on real-world projects at Kaashvi Tutorials - building Android apps and full-stack web applications</p>
+    </div>
+
+    <div class="highlight-card">
+      <div class="highlight-icon">🎯</div>
+      <h3>Leadership</h3>
+      <p>General Secretary of IEEE UVCE, organizing national-level technical events and leading student initiatives</p>
+    </div>
+
+    <div class="highlight-card">
+      <div class="highlight-icon">🚀</div>
+      <h3>Technical Skills</h3>
+      <p>Full-stack development with Node.js, Express.js, Android development with Kotlin, and modern web technologies</p>
+    </div>
+  </div>
+
+  <div class="cta-section">
+    <h2>Explore My Journey</h2>
+    <div class="cta-buttons">
+      <a href="/projects" class="cta-button">View Projects</a>
+      <a href="/achievements" class="cta-button secondary">See Achievements</a>
+      <a href="/contact" class="cta-button">Get In Touch</a>
+    </div>
+  </div>
+</div>
 
 <%- include("partials/footer.ejs") %>

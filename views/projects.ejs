@@ -1,39 +1,205 @@
-
 <%- include("partials/header.ejs") %>
 
-<h1>🚀 My Projects</h1>
+<style>
+  .projects-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
 
-<div class="project">
-  <h3>⏳ ChronoSphere</h3>
-  <p><b>ChronoSphere</b> is a web application for exploring history. Powered by a <b>Node.js</b> backend with <b>Express.js</b> and <b>Axios</b>, and a dynamic frontend using <b>EJS</b>, it fetches historical data from an external API to display a rich timeline of <b>events</b>, <b>births</b>, and <b>deaths</b> for any given date.</p>
-  <a href="https://chronosphere-1.onrender.com" target="_blank" class="link-space">🔗 Explore ChronoSphere</a>
+  .projects-container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #333;
+    text-align: center;
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+  }
+
+  .project-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  }
+
+  .project-header {
+    padding: 30px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-align: center;
+  }
+
+  .project-card:nth-child(2) .project-header {
+    background: linear-gradient(135deg, #3586ff 0%, #667eea 100%);
+  }
+
+  .project-card:nth-child(3) .project-header {
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+  }
+
+  .project-card:nth-child(4) .project-header {
+    background: linear-gradient(135deg, #667eea 0%, #3586ff 100%);
+  }
+
+  .project-card:nth-child(5) .project-header {
+    background: linear-gradient(135deg, #3586ff 0%, #764ba2 100%);
+  }
+
+  .project-icon {
+    font-size: 3rem;
+    margin-bottom: 10px;
+  }
+
+  .project-header h3 {
+    font-size: 1.5rem;
+    margin: 0;
+    color: white;
+  }
+
+  .project-body {
+    padding: 25px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .project-body p {
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    flex: 1;
+  }
+
+  .project-body b {
+    color: #3586ff;
+  }
+
+  .project-link {
+    display: inline-block;
+    padding: 12px 30px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  }
+
+  .project-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+    text-decoration: none;
+    color: white;
+  }
+
+  @media (max-width: 768px) {
+    .projects-container h1 {
+      font-size: 2rem;
+    }
+
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<div class="projects-container">
+  <h1>🚀 My Projects</h1>
+
+  <div class="projects-grid">
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-icon">📱</div>
+        <h3>Kaashvi Tutor App</h3>
+      </div>
+      <div class="project-body">
+        <p>A professional Android application for <b>Kaashvi Tutorials Learning Platform</b> built with <b>Kotlin</b> in <b>Android Studio</b>. Features include secure <b>Authentication & Authorization</b>, enhanced student learning experience, and scalable architecture. Currently live on <b>Google Play Store</b> serving real users with ongoing updates and feature enhancements.</p>
+        <a href="https://play.google.com/store/apps/details?id=com.kaashvitutorials.tutor" target="_blank" class="project-link">🔗 View on Play Store</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-icon">⏳</div>
+        <h3>ChronoSphere</h3>
+      </div>
+      <div class="project-body">
+        <p><b>ChronoSphere</b> is a web application for exploring history. Powered by a <b>Node.js</b> backend with <b>Express.js</b> and <b>Axios</b>, and a dynamic frontend using <b>EJS</b>, it fetches historical data from an external API to display a rich timeline of <b>events</b>, <b>births</b>, and <b>deaths</b> for any given date.</p>
+        <a href="https://chronosphere-1.onrender.com" target="_blank" class="project-link">🔗 Explore ChronoSphere</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-icon">📝</div>
+        <h3>My Blog</h3>
+      </div>
+      <div class="project-body">
+        <p>A modern and responsive blog platform built with <b>Node.js</b>, <b>Express</b>, and <b>EJS</b>. It features <b>dynamic routing</b>, <b>individual post pages</b>, and a sleek <b>dark mode</b> for comfortable reading. The UI is styled with custom CSS and made interactive using JavaScript, offering a smooth and engaging user experience.</p>
+        <a href="https://my-blog-rg3p.onrender.com/" target="_blank" class="project-link">🔗 Visit My Blog</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-icon">🎮</div>
+        <h3>Simon Game</h3>
+      </div>
+      <div class="project-body">
+        <p>A web-based memory game where a sequence of colors lights up, and you have to repeat it. The game starts by pressing any key (so currently accessible only via laptop/desktop). As you move forward, the sequence gets longer and more challenging.</p>
+        <a href="https://hegdepunithramesh.github.io/Simon-Game/" target="_blank" class="project-link">🔗 Play Simon Game</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-icon">🎲</div>
+        <h3>Dice Game</h3>
+      </div>
+      <div class="project-body">
+        <p>A quick and fun dice game for two players. Just refresh the page to roll the dice. The player with the higher number wins. Fully responsive and works smoothly on both mobile and desktop.</p>
+        <a href="https://hegdepunithramesh.github.io/Dice-Game/" target="_blank" class="project-link">🔗 Play Dice Game</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-icon">🥁</div>
+        <h3>Drum Kit</h3>
+      </div>
+      <div class="project-body">
+        <p>A musical drum kit you can play using your keyboard or mouse! Each key triggers a different drum sound, making it interactive and fun to play. Great way to feel like a drummer using just your keyboard.</p>
+        <a href="https://hegdepunithramesh.github.io/DRUM-KIT/" target="_blank" class="project-link">🔗 Play Drum Kit</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-icon">💰</div>
+        <h3>Student Expense Tracker</h3>
+      </div>
+      <div class="project-body">
+        <p>A comprehensive expense tracking application designed specifically for students to manage their finances effectively. Built with modern web technologies, it helps track daily expenses, categorize spending, and visualize financial patterns. <b>Currently under development</b> with features including budget management, expense analytics, and intuitive user interface.</p>
+        <span class="project-link" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); cursor: default; opacity: 0.8;">🚧 Under Development</span>
+      </div>
+    </div>
+  </div>
 </div>
-
-
-<div class="project">
-  <h3>📝 My Blog</h3>
-  <p>A modern and responsive blog platform built with <b>Node.js</b>, <b>Express</b>, and <b>EJS</b>. It features <b>dynamic routing</b>, <b>individual post pages</b>, and a sleek <b>dark mode</b> for comfortable reading. The UI is styled with custom CSS and made interactive using JavaScript, offering a smooth and engaging user experience.</p>
-  <a href="https://my-blog-rg3p.onrender.com/" target="_blank" class="link-space">🔗 Visit My Blog</a>
-</div>
-
-
-<div class="project">
-  <h3>🎮 Simon Game</h3>
-  <p>A web-based memory game where a sequence of colors lights up, and you have to repeat it. The game starts by pressing any key (so currently accessible only via laptop/desktop). As you move forward, the sequence gets longer and more challenging.</p>
-  <a href="https://hegdepunithramesh.github.io/Simon-Game/" target="_blank"class="link-space">🔗 Play Simon Game</a>
-</div>
-
-<div class="project">
-  <h3>🎲 Dice Game</h3>
-  <p>A quick and fun dice game for two players. Just refresh the page to roll the dice. The player with the higher number wins. Fully responsive and works smoothly on both mobile and desktop.</p>
-  <a href="https://hegdepunithramesh.github.io/Dice-Game/" target="_blank"class="link-space">🔗 Play Dice Game</a>
-</div>
-
-<div class="project">
-  <h3>🥁 Drum Kit</h3>
-  <p>A musical drum kit you can play using your keyboard or mouse! Each key triggers a different drum sound, making it interactive and fun to play. Great way to feel like a drummer using just your keyboard.</p>
-  <a href="https://hegdepunithramesh.github.io/DRUM-KIT/" target="_blank"class="link-space">🔗 Play Drum Kit</a>
-</div>
-
 
 <%- include("partials/footer.ejs") %>
